@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <style>
+            .collapsible {
+              background-color: #0a3cf1;
+              color: white;
+              cursor: pointer;
+              padding: 18px;
+              width: 10%;
+              border: none;
+              text-align: left;
+              outline: none;
+              font-size: 15px;
+            }
+            
+            .active, .collapsible:hover {
+              background-color: #e108cf;
+            }
+
+            .collapsible:after {
+                content: '\002B';
+                color: white;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+
+            .active:after {
+                content: "\2212";
+            }
+            
+            .content {
+              padding: 0 18px;
+              width: 10%;
+              display: none;
+              overflow: hidden;
+              background-color: #f1f1f1;
+            }
+            </style>
+    </head>
+    <body>
+        <form action="./process.php" method="POST">
+            <button type="button" class="collapsible" >Cuisine</button>
+            <div class="content" width="10%">
+            <label for="foodtype">foodtype</label>
+            <select id="foodtype" name="foodtype">
+                <option value="nigerian">Nigerian</option> 
+                <option value="ghanaian">Ghanaian</option>
+                <option value="jamaican">Jamaican</option>
+                <option value="english">English</option>
+                <option value="mexican">Mexican</option>
+                <option value="chinese">Chinese</option>
+                <option value="french">French</option>
+                <option value="german">German</option>
+                <option value="italian">Italian</option>
+                <option value="greek">Greek</option>
+                          </select>
+            </div>
+                          <br>
+                          <button type="button" class="collapsible">Price</button>
+                            <div class="content">
+                          <label for="price">price</label>
+                          <br>
+                          <input type="range" name="price" min="0" max="100" step="10" id="price">
+                          <br> value: <span id="demo"></span><br>
+                          <script>
+                            var slider = document.getElementById("price");
+                            var output = document.getElementById("demo");
+                            output.innerHTML = slider.value;
+
+                            slider.oninput = function(){
+                                output.innerHTML = this.value;
+
+
+                            }
+                          </script>
+                            </div>
+                            <br>
+                            <button type="button" class="collapsible">Location</button>
+                            <div class="content">
+                          <label for="location">Location</label><br>
+                          <input type="checkbox" name="location1" value="Angel">Angel<br>
+                          <input type="checkbox" name="location2" value="Brixton">Brixton<br>
+                          <input type="checkbox" name="location3" value="Croydon">Croydon<br>
+                          <input type="checkbox" name="location4" value="Ealing">Ealing<br>
+                          <input type="checkbox" name="location5" value="Greenwich">Greenwich<br>
+                          <input type="checkbox" name="location6" value="Hackney">Hackney<br>
+                          <input type="checkbox" name="location7" value="Islington">Islington<br>
+                          <input type="checkbox" name="location8" value="Lewisham">Lewisham<br>
+                          <input type="checkbox" name="location9" value="Newham">Newham<br>
+                          <input type="checkbox" name="location10" value="Southwark">Southwark<br>
+                            </div>
+                            <br>
+                            <button type="button" class="collapsible">Rating</button>
+                            <div class="content">
+                          <label for="rating">Rating</label><br>
+                          <input type="checkbox" name="Rating1" value="1">1-Poor<br>
+                          <input type="checkbox" name="Rating2" value="2">2-satisfactory<br>
+                          <input type="checkbox" name="Rating3" value="3">3-Good<br>
+                          <input type="checkbox" name="Rating4" value="4">4-Very Good<br>
+                          <input type="checkbox" name="Rating5" value="5">5-Excellent<br>
+                            </div>
+                            <br>
+                            <button type="button" class="collapsible">Dietary requirements</button>
+                            <div class="content">
+                          <label for="DietaryRequirements"> Dietary Requirements</label><br>
+                          <input type="checkbox" name="Vegan" value="Vegan">Vegan<br>
+                          <input type="checkbox" name="Vegetarian" value="Vegetarian">Vegetarian<br>
+                          <input type="checkbox" name="Gluten_Free" value="Gluten Free">Gluten Free<br>
+                          <input type="checkbox" name="Pesceterian" value="Pesceterian">Pesceterian<br>
+                          <input type="checkbox" name="Coeliac" value="Coeliac">Coeliac<br>
+                            
+                          <input type="checkbox" name="Halal" value="Halal">Halal<br>
+                          <input type="checkbox" name="Kosher" value="Kosher">Kosher<br>
+                          <input type="checkbox" name="Organic" value="Organic">Organic<br>
+                        </div>
+                        <br>
+                        <button type="button" class="collapsible">Ethnicity</button>
+                            <div class="content">
+                          <label for="Ethnicty"> Ethnic Background</label><br>
+                          <input type="checkbox" name="African" value="African">African<br>
+                          <input type="checkbox" name="Asian" value="Asian">Asian<br>
+                          <input type="checkbox" name="Caribbean" value="Caribbean">Caribbean<br>
+                          <input type="checkbox" name="Mixed" value="Mixed">Mixed<br>
+                          <input type="checkbox" name="White" value="White">White<br>
+                            </div>
+                        <br>
+                        
+                          <input type="submit" value="search">
+        </form>
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+            </script>
+    </body>
+</html>
